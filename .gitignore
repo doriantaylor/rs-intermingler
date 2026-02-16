@@ -1,0 +1,29 @@
+# Rust build output
+/target/
+
+# Cargo lockfile (see note below)
+# Uncomment if this repo only contains libraries
+# Cargo.lock
+
+# Backup files
+**/*.rs.bk
+
+# Emacs
+**/\#*\#
+**/.\#*
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+
+# Rust analyzer (rare but safe)
+rust-project.json
