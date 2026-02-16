@@ -16,6 +16,8 @@ The primary goal of _Intertwingler_ is to serve as a substrate for _dense hyperm
 
 The _rest_ of what you need to make a website, it turns out, is highly amenable to being modeled as _other_ microservices, which can be reused in other contexts. Even then though, it's necessary to merge these all together in an orderly fashion. This is what Intertwingler's core engine does, and now a simpler, higher-performing, more loosely-coupled, and thus more generically-applicable _Intermingler_ will replace it.
 
+> [_Intertwingler_](https://github.com/doriantaylor/rb-intertwingler) will carry on its existence as a bundle of microservices that will plug into _Intermingler_.
+
 ## Development Plan
 
 Separating the engine from its constituent microservices [was always part of the plan](https://doriantaylor.com/intelligent-heterogeneity), mainly to allow the latter to be written in whatever programming language is convenient, and interface with them over standard HTTP. The plan is to write Intermingler as a library in Rust, which lies at a sensible intersection of performance and modern memory safety. This will then touch down to the rest of the ecosystem with the following adapters:
@@ -42,6 +44,7 @@ The Handler Manifest Protocol is a way for handlers (microservices) to advertise
 
 * the request method(s),
 * request and response content types,
+* applicable parameters (query string, request body, etc.)
 * whether they require authentication,
 * additional aliases and preferred redirection targets,
 * etc.
