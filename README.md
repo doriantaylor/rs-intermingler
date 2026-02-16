@@ -36,7 +36,7 @@ One goal for Intermingler is that it can be dynamically configured, and that the
 
 > ✱ Note: it would be unwise to expose such a resource to the outside. That said, authentication is on the list to look at. Determining precisely how Intermingler is to be configured is anticipated to be a large part of the project.
 
-Chief among the configuration for Intermingler will be the authoritative list of URIs. These are represented by a canonical identifier (which need not be HTTP(S)) and all available aliases.
+Chief among the configuration for Intermingler will be the authoritative list of URIs. These are represented by a canonical identifier (which need not be HTTP(S)) and all available aliases. The purpose of this subsystem is to put a layer of indirection between the URIs that are exposed to the user-facing network, and those that are selected by developers to make their applications function. The goal here is to satisfy [the 1998 Cool URIs memo](https://www.w3.org/Provider/Style/URI) by Tim Berners-Lee and eliminate the `404` error, and contribute to realizing Fielding's notion of a _uniform interface_ through [Hypermedia as the Engine of Application State](https://roy.gbiv.com/pubs/dissertation/rest_arch_style.htm#sec_5_1_5).
 
 ## Handler Manifest Protocol
 
