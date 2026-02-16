@@ -12,11 +12,11 @@ _Intermingler_ is a fancy reverse proxy and _microservice bus_. It is an interpr
 
 Intermingler is the result of a natural cleavage plane that has emerged in [Intertwingler](https://intertwingler.net/), which is billed as an application server with very specific characteristics. The basic unit of Intertwingler, including the engine itself, is a thing called a _handler_. These can be understood at a fundamental level as microservices that respond to one or more URIs through one or more request methods. The Intertwingler engine, then, via reverse proxy, yokes all its handlers under management together into a single contiguous address space, and manages routing, URI rewriting, and the all-important address renaming history.
 
-The primary goal of _Intertwingler_ is to serve as a substrate for _dense hypermedia_ systems: it is intended to manage a large number of small, [reusable, machine-actionable](https://en.wikipedia.org/wiki/FAIR_data) hypermedia elements, connected to each other by a profusion of typed (and bidirectional) links. The idea is to use these like Lego to rapidly create websites with certain desirable characteristics that are hard to achieve through other paradigms. The only catch is it doesn't cover _everything_ you need to make a website.
+The primary goal of _Intertwingler_ is to serve as a substrate for _dense hypermedia_ systems: it is intended to manage a large number of small, [reusable, machine-actionable](https://en.wikipedia.org/wiki/FAIR_data) hypermedia elements, connected to each other by a profusion of typed (and bidirectional) links. The idea is to use these like Lego to rapidly create websites with certain desirable characteristics that are hard to achieve through other paradigms. The only catch is that it doesn't cover _everything_ you need to make a website.
 
 The _rest_ of what you need to make a website, it turns out, is highly amenable to being modeled as _other_ microservices, which can be reused in other contexts. Even then though, it's necessary to merge these all together in an orderly fashion. This is what Intertwingler's core engine does, and now a simpler, higher-performing, more loosely-coupled, and thus more generically-applicable _Intermingler_ will replace it.
 
-> [_Intertwingler_](https://github.com/doriantaylor/rb-intertwingler) will carry on its existence as a bundle of microservices that will plug into _Intermingler_.
+> [_Intertwingler_](https://github.com/doriantaylor/rb-intertwingler) will carry on its existence as a bundle of handlers that will plug into _Intermingler_.
 
 ## Development Plan
 
@@ -26,9 +26,9 @@ Separating the engine from its constituent microservices [was always part of the
 2. then as an `nginx` module, for tighter integration into the stack,
 3. then, if there are the resources, as an Apache module.
 
-> Not only does Apache still represent about a quarter of all Web servers, its request loop was designed primarily by Fielding, whose designs inspired this entire endeavour. As such, congruence to the Apache API can be used as a measure of conceptual integrity and alignment to the principles of the REST dissertation.
+> Not only does Apache still represent about a quarter of all Web servers, its request loop (and concomitant API) was designed primarily by Fielding, whose designs inspired this entire endeavour. As such, congruence to the Apache API can be used as a measure of conceptual integrity and alignment to the principles of the REST dissertation.
 
-The main focus in the short term, however, will be the definition of Intermingler's dynamic configuration interface, and the Handler Manifest Protocol.
+The main focus in the short term, however, will be the definition of Intermingler's dynamic [configuration interface](#configuration-interface), and the [Handler Manifest Protocol](#handler-manifest-protocol).
 
 ## Configuration Interface
 
@@ -36,7 +36,7 @@ One goal for Intermingler is that it can be dynamically configured, and that the
 
 > ✱ Note: it would be unwise to expose such a resource to the outside. That said, authentication is on the list to look at. Determining precisely how Intermingler is to be configured is anticipated to be a large part of the project.
 
-Chief among the configuration for Intermingler will be the authoritative list of URIs. These are represented by a canonical identifier (which need not be HTTP(S)) and all available aliases. The purpose of this subsystem is to put a layer of indirection between the URIs that are exposed to the user-facing network, and those that are selected by developers to make their applications function. The goal here is to satisfy [the 1998 Cool URIs memo](https://www.w3.org/Provider/Style/URI) by Tim Berners-Lee and eliminate the `404` error, and contribute to realizing Fielding's notion of a _uniform interface_ through [Hypermedia as the Engine of Application State](https://roy.gbiv.com/pubs/dissertation/rest_arch_style.htm#sec_5_1_5).
+Chief among the configuration for Intermingler will be the authoritative list of URIs. These are represented by a mapping between a canonical identifier (which need not be HTTP(S)) and a list of available aliases. The purpose of this subsystem is to put a layer of indirection between the URIs that are exposed to the user-facing network, and those that are selected by developers to make their applications function. The goal here is to satisfy [the 1998 Cool URIs memo](https://www.w3.org/Provider/Style/URI) by Tim Berners-Lee and eliminate the `404` error, and contribute to realizing Fielding's notion of a _uniform interface_ through [Hypermedia as the Engine of Application State](https://roy.gbiv.com/pubs/dissertation/rest_arch_style.htm#sec_5_1_5).
 
 ## Handler Manifest Protocol
 
