@@ -1,6 +1,6 @@
 # Intermingler: A Microservice Bus With Opinions
 
-_Intermingler_ is a fancy reverse proxy and _microservice bus_. It is an interpretation of the [layered-client-server](https://roy.gbiv.com/pubs/dissertation/net_arch_styles.htm#sec_3_4_2) pattern in [Roy Fielding's REST dissertation](https://roy.gbiv.com/pubs/dissertation/top.htm). These are its goals:
+_Intermingler_ is (or at least will be) a fancy reverse proxy and _microservice bus_. It is an interpretation of the [layered-client-server](https://roy.gbiv.com/pubs/dissertation/net_arch_styles.htm#sec_3_4_2) pattern in [Roy Fielding's REST dissertation](https://roy.gbiv.com/pubs/dissertation/top.htm). These are its goals:
 
 * Reverse-proxy a set of microservices, and shape them into _extremely_ well-defined development targets,
 * Perform essential input sanitation, output manipulation, and caching tasks,
