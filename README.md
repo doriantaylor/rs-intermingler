@@ -2,7 +2,8 @@
 
 _Intermingler_ is (or at least will be) a fancy reverse proxy and _microservice bus_. It is an interpretation of the [layered-client-server](https://roy.gbiv.com/pubs/dissertation/net_arch_styles.htm#sec_3_4_2) pattern in [Roy Fielding's REST dissertation](https://roy.gbiv.com/pubs/dissertation/top.htm). These are its goals:
 
-* Reverse-proxy a set of microservices, and shape them into _extremely_ well-defined development targets,
+* Yoke together heterogeneous microservices through a unifying reverse proxy interface,
+* Specify conformance criteria for said microservices that yield _extremely_ well-defined development targets,
 * Perform essential input sanitation, output manipulation, and caching tasks,
 * Reduce or eliminate `404` errors by managing the continuity and renaming history of a website's URI space.
 
